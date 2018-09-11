@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabElements" text="Elements">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="textLabel" layoutX="100.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Element Name: " x="10.0" y="10.0" />
+                        <TextField fx:id="elementName" layoutX="220.0" layoutY="10.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <Button fx:id="addMoreBtn" layoutX="200.0" layoutY="70.0" mnemonicParsing="false" onAction="#addMoreBtnAction" text="Add More" />
+                        <Button fx:id="submitBtn" layoutX="350.0" layoutY="70.0" mnemonicParsing="false" onAction="#submitBtnAction" text="Submit" />
+                     </children>
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="variableElements" text="Variables">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="varTitleLbl" layoutX="100.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Variable Name: " x="10.0" y="10.0" />
+                        <TextField fx:id="variableName" layoutX="220.0" layoutY="10.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="varValueLbl" layoutX="100.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Variable Value: " x="10.0" y="10.0" />
+                        <TextArea fx:id="variableValue" layoutX="220.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding></TextArea>
+                        <Text fx:id="varValueLbl1" layoutX="110.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Active Flag:" x="10.0" y="10.0" />
+                        <RadioButton fx:id="flagTrueVar" layoutX="220.0" layoutY="175.0" mnemonicParsing="false" selected="true" text="True">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="isTrueVar" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="flagFalseVar" layoutX="350.0" layoutY="175.0" mnemonicParsing="false" text="False" toggleGroup="$isTrueVar" />
+                        <Button fx:id="addVariableBtn" layoutX="200.0" layoutY="220.0" mnemonicParsing="false" onAction="#addVariableBtnAction" text="Add More" />
+                        <Button fx:id="submitVariableBtn" layoutX="350.0" layoutY="220.0" mnemonicParsing="false" onAction="#submitBtnAction" text="Submit" />
+                     </children>
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="variableElements1" text="Points">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="pointTitleLbl" layoutX="100.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Point ID: " x="10.0" y="10.0" />
+                        <TextField fx:id="pointID" layoutX="230.0" layoutY="10.0" prefHeight="20.0" prefWidth="180.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="varValueLbl1" layoutX="100.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Point Type Code: " x="10.0" y="10.0" />
+                        <TextField fx:id="ptc" layoutX="230.0" layoutY="50.0" prefHeight="20.0" prefWidth="180.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="varValueLbl12" layoutX="100.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Point Lookup:" x="10.0" y="10.0" />
+                        <TextField fx:id="pointLookup" layoutX="230.0" layoutY="90.0" prefHeight="20.0" prefWidth="180.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="varValueLbl13" layoutX="100.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Point Name" x="10.0" y="10.0" />
+                        <TextField fx:id="pointName" layoutX="230.0" layoutY="130.0" prefHeight="20.0" prefWidth="180.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="varValueLbl14" layoutX="100.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Point Tag " x="10.0" y="10.0" />
+                        <TextField fx:id="pointTag" layoutX="230.0" layoutY="170.0" prefHeight="20.0" prefWidth="180.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="varValueLbl15" layoutX="100.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Point UTC Offset: " x="10.0" y="10.0" />
+                        <TextField fx:id="pointOffset" layoutX="230.0" layoutY="210.0" prefHeight="20.0" prefWidth="180.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="varValueLbl16" layoutX="100.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Point Desc: " x="10.0" y="10.0" />
+                        <TextField fx:id="pointDesc" layoutX="230.0" layoutY="250.0" prefHeight="20.0" prefWidth="180.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="pointVariable" layoutX="100.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Active Flag:" x="10.0" y="10.0" />
+                        <RadioButton fx:id="pointflagTrue" layoutX="230.0" layoutY="300.0" mnemonicParsing="false" selected="true" text="True">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="isTruepoint" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="pointflagFalse" layoutX="350.0" layoutY="300.0" mnemonicParsing="false" text="False" toggleGroup="$isTruepoint" />
+                        <Text fx:id="varValueLbl161" layoutX="100.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Point Type:" x="10.0" y="10.0" />
+                        <ComboBox fx:id="pointType" layoutX="230.0" layoutY="330.0" prefWidth="180.0" promptText="Choose">
+						</ComboBox>
+                        <Button fx:id="addVariableBtn1" layoutX="200.0" layoutY="390.0" mnemonicParsing="false" onAction="#addPointBtnAction" text="Add More" />
+                        <Button fx:id="submitVariableBtn1" layoutX="350.0" layoutY="390.0" mnemonicParsing="false" onAction="#submitBtnAction" text="Submit" />
+                     </children>
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
