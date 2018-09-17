@@ -21,6 +21,22 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
 public class MainController {
+	//TabPane
+	@FXML
+	private TabPane tabPane;
+	
+	//Header Info
+	@FXML
+	private TextField filePath;
+	@FXML
+	private TextField archivePath;
+	@FXML
+	private TextField fileMask;
+	@FXML
+	private TextField interfaceName;
+	@FXML
+	private TextField interfaceDescription;
+	
 	//For Elements
 	@FXML
 	private TextField elementName;
@@ -34,6 +50,8 @@ public class MainController {
 	private RadioButton flagTrueVar;
 	@FXML
 	private RadioButton flagFalseVar;
+	@FXML
+	private ToggleGroup isTrueVar;
 
 	//For Points
 	@FXML
@@ -64,6 +82,7 @@ public class MainController {
 //collection Objects
 	private Set<String>elements=new HashSet<String>();
 	private List<PointClass> pointLst=new LinkedList<PointClass>();
+	private List<VariableClass> varList=new LinkedList<VariableClass>();
 	
 	
 	@FXML
@@ -72,14 +91,24 @@ public class MainController {
 		pointType.setItems(pointTypes);
 		pointflagTrue.setToggleGroup(isTruepoint);
 		pointflagFalse.setToggleGroup(isTruepoint);
+		flagTrueVar.setToggleGroup(isTrueVar);
+		flagFalseVar.setToggleGroup(isTrueVar);
 		
 	}
 	
-
+	@FXML
+	protected void addHeaderBtnAction(ActionEvent e) {
+		System.out.println("filePath: "+filePath.getText());
+		System.out.println("archivePath: "+archivePath.getText());
+		System.out.println("fileMask: "+fileMask.getText());
+		tabPane.getSelectionModel().selectNext();
+	}
 	
 	@FXML
-	protected void addMoreBtnAction(ActionEvent e) {
+	protected void addElementBtnAction(ActionEvent e) {
 		System.out.println("Add More Button Clicked "+ elementName+"   "+elementName.getText());
+		
+		//Adding Elements in Set 
 		if(!elementName.getText().isEmpty())
 		   elements.add(elementName.getText());
 		elementName.clear();
@@ -92,7 +121,20 @@ public class MainController {
 	protected void addVariableBtnAction(ActionEvent e) {
 		System.out.println("Variable Name:"+ variableName.getText());
 		System.out.println("Variable Value:"+variableValue.getText());
-
+		System.out.println("Flag: "+ ((RadioButton)(isTrueVar.getSelectedToggle())).getText());
+		
+		//Creating variable Type Object and setting its values
+		VariableClass variables=new VariableClass();
+		variables.setVariableName(variableName.getText());
+		variables.setVariableValue(variableValue.getText());
+		variables.setFlag(((RadioButton)(isTrueVar.getSelectedToggle())).getText());
+		
+		//Adding VariableClass Object in the List
+		varList.add(variables);
+		
+		//clearing the Text fields after inserting the object in the List
+		variableName.clear();
+		variableValue.clear();
 
 	}
 	
@@ -127,16 +169,36 @@ public class MainController {
 		
 		System.out.println("Points: "+ pointLst.get(0));
 		
+		
+		//clearing the Text fields after inserting the object in the List
+		pointID.clear();
+		ptc.clear();
+		pointLookup.clear();
+		pointName.clear();
+		pointTag.clear();
+		pointOffset.clear();
+		pointDesc.clear();
+		
 
+	}
+	
+	@FXML
+	protected void nextBtnAction(ActionEvent e) {
+		System.out.println("Next Button Clicked");
+		//elements.clear();
+		//selectionModel.select(3);
+		//System.out.println("Values in the Set: "+ elements);
+		tabPane.getSelectionModel().selectNext();
+		
 
+		
 	}
 	
 	@FXML
 	protected void submitBtnAction(ActionEvent e) {
 		System.out.println("Submit Button Clicked");
-		XmlGenerator.elementsList(elements); 
-		elements.clear();
-		//selectionModel.select(3);
-		System.out.println("Values in the Set: "+ elements);
+		XmlGenerator.elementsList(filePath.getText(),archivePath.getText(),fileMask.getText(),interfaceName.getText(),interfaceDescription.getText(),elements,pointLst,varList); 
+		//elements.clear();
+	
 	}
 }

@@ -11,7 +11,49 @@
    <children>
       <TabPane fx:id="tabPane" prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="tabElements" text="Elements">
+            <Tab fx:id="tabElements1" text="Header Info">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="filePathLbl" layoutX="100.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Path:" x="10.0" y="10.0" />
+                        <TextField fx:id="filePath" layoutX="220.0" layoutY="10.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="filePathLbl1" layoutX="100.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Archive Path:" x="10.0" y="10.0" />
+                        <TextField fx:id="archivePath" layoutX="220.0" layoutY="60.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="filePathLbl2" layoutX="100.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Mask:" x="10.0" y="10.0" />
+                        <TextField fx:id="fileMask" layoutX="220.0" layoutY="110.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="filePathLbl21" layoutX="100.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Interface Name:" x="10.0" y="10.0" />
+                        <TextField fx:id="interfaceName" layoutX="220.0" layoutY="160.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <Text fx:id="filePathLbl211" layoutX="100.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" x="10.0" y="10.0" />
+                        <TextField fx:id="interfaceDescription" layoutX="220.0" layoutY="210.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <Button fx:id="nextElementBtn1" layoutX="280.0" layoutY="280.0" mnemonicParsing="false" onAction="#addHeaderBtnAction" text="Next" />
+                     </children>
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab fx:id="tabElements" text="Fields">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -21,8 +63,8 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </TextField>
-                        <Button fx:id="addMoreBtn" layoutX="200.0" layoutY="70.0" mnemonicParsing="false" onAction="#addMoreBtnAction" text="Add More" />
-                        <Button fx:id="submitBtn" layoutX="350.0" layoutY="70.0" mnemonicParsing="false" onAction="#submitBtnAction" text="Submit" />
+                        <Button fx:id="addMoreBtn" layoutX="200.0" layoutY="70.0" mnemonicParsing="false" onAction="#addElementBtnAction" text="Add More" />
+                        <Button fx:id="nextElementBtn" layoutX="350.0" layoutY="70.0" mnemonicParsing="false" onAction="#nextBtnAction" text="Next" />
                      </children>
                      <padding>
                         <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
@@ -52,7 +94,7 @@
                            </toggleGroup></RadioButton>
                         <RadioButton fx:id="flagFalseVar" layoutX="350.0" layoutY="175.0" mnemonicParsing="false" text="False" toggleGroup="$isTrueVar" />
                         <Button fx:id="addVariableBtn" layoutX="200.0" layoutY="220.0" mnemonicParsing="false" onAction="#addVariableBtnAction" text="Add More" />
-                        <Button fx:id="submitVariableBtn" layoutX="350.0" layoutY="220.0" mnemonicParsing="false" onAction="#submitBtnAction" text="Submit" />
+                        <Button fx:id="nextVariableBtn" layoutX="350.0" layoutY="220.0" mnemonicParsing="false" onAction="#nextBtnAction" text="Next" />
                      </children>
                      <padding>
                         <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
